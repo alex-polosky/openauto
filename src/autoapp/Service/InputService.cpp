@@ -181,7 +181,7 @@ void InputService::onTouchEvent(const projection::TouchEvent& event)
         touchLocation->set_y(event.y);
         touchLocation->set_pointer_id(0);
 
-        OPENAUTO_LOG(info) << "[OpenAuto] onTouchEvent " << event.x << "," << event.y);
+        OPENAUTO_LOG(info) << "[OpenAuto] onTouchEvent " << event.x << "," << event.y;
 
         auto promise = aasdk::channel::SendPromise::defer(strand_);
         promise->then([]() {}, std::bind(&InputService::onChannelError, this->shared_from_this(), std::placeholders::_1));
