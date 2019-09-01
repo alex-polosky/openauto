@@ -158,7 +158,7 @@ void InputService::onButtonEvent(const projection::ButtonEvent& event)
             buttonEvent->set_scan_code(event.code);
         }
 
-        OPENAUTO_LOG(info) << "[OpenAuto] onButtonEvent " << event.code);
+        OPENAUTO_LOG(info) << "[OpenAuto] onButtonEvent " << event.code;
 
         auto promise = aasdk::channel::SendPromise::defer(strand_);
         promise->then([]() {}, std::bind(&InputService::onChannelError, this->shared_from_this(), std::placeholders::_1));
